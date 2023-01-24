@@ -22,7 +22,7 @@ const View = ({books,deleteBook,setbooks,setStatus}) => {
       updateStatus=== book.slno ? <Edit books={books} setbooks={setbooks} book={book}/> :
       <><br></br>
       <tr key={book.slno}>
-          <td>{book.title}</td>
+          <td>{book.task}</td>
           <td><span className={getStatusButtonStyle(book.status)}>{book.status}</span></td>
           <td className='edit-btn'>
             <button onClick={() => {handleEdit(book.slno)}}><i class="fas fa-pen"></i></button>
@@ -60,8 +60,8 @@ function Edit({book,books,setbooks}){
   }
   return(
     <><br></br><tr className='text-center'>
-      <td><input type='text' name='title' value={book.title} onChange={handleInput} className='w-40 '></input></td>
-      <td><select name='status' onChange={handleInput} >
+      <td><input type='text' name='task' value={book.task} onChange={handleInput} className='w-40 '></input></td>
+      <td><select name='status' onChange={handleInput} value={book.status}>
             <option value="Todo">Todo</option>
             <option value="Pending">Pending</option>
             <option value="Complete">Complete</option>

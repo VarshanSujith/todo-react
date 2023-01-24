@@ -52,17 +52,20 @@ function App() {
   const addtask=["Add Task","Close"]
   return (
     <div className='wrapper'>
-    <h1 className='text-4xl p-6'>TODO App</h1>
+    <h1 className='text-4xl p-6 text-center'>TODO App</h1>
     <div className='main'>
 
-    <div className='form-container flex flex-row gap-4 justify-end mr-20 mt-48'>
-    {onn!=0  &&  <form autoComplete="off" className='bg-cyan-400 p-2 mb-2 gap-2'
+  
+      <div className='view-container flex flex-col'>
+
+      <div className='form-container flex flex-row gap-4 justify-end w-5/6'>
+    {onn!=0  &&  <form autoComplete="off" className='border-[1px] border-cyan-400 p-2 mb-2 gap-2'
         onSubmit={handleAddBookSubmit}>
           <label>task:   
-          <input type="text" className='form-control bg-cyan-400' required
+          <input type="text" className='form-control border-[1px] border-slate-400' required
           onChange={(e)=>settask(e.target.value)} value={task}></input></label>
           <label>Status: 
-          <select className='bg-cyan-400' onChange={(e)=>{setStatus(e.target.value)}} >
+          <select className='' onChange={(e)=>{setStatus(e.target.value)}} >
             <option value="Todo">Todo</option>
             <option value="Pending">Pending</option>
             <option value="Complete">Complete</option>
@@ -75,7 +78,6 @@ function App() {
         className='w-20 bg-white text-cyan-500  mb-2 outline outline-1 outline-offset-2'>{addtask[onn]}</button>}
       </div>
 
-      <div className='view-container flex flex-col'>
         {books.length>0&&<>
           <div className='flex justify-evenly'>
             <table className='table w-4/6 '>
@@ -94,7 +96,7 @@ function App() {
             </table>
           </div>
         </>}
-        {books.length < 1 && <div>No books are added yet</div>}
+        {books.length < 1 && <div>No Tasks are added yet</div>}
       </div>
 
     </div>
